@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Slicing</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea, input[type="text"], input[type="number"], button {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function sliceString() {
+            var inputString = document.getElementById("inputField").value;
+            var startIndex = parseInt(document.getElementById("startField").value);
+            var endIndex = parseInt(document.getElementById("endField").value);
+            var slicedString = inputString.slice(startIndex, endIndex);
+            document.getElementById("outputField").value = slicedString;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>String Slicing</h1>
+
+        <form>
+            <label for="inputField">Input String:</label>
+            <textarea id="inputField" name="inputField"></textarea>
+
+            <br>
+
+            <label for="startField">Start Index:</label>
+            <input type="number" id="startField" name="startField" />
+
+            <br>
+
+            <label for="endField">End Index:</label>
+            <input type="number" id="endField" name="endField" />
+
+            <br>
+
+            <button type="button" onclick="sliceString()">Slice</button>
+
+            <br>
+
+            <label for="outputField">Sliced String:</label>
+            <textarea id="outputField" name="outputField" readonly></textarea>
+        </form>
+    </div>
+</body>
+</html>

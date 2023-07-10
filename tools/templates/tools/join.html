@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Joining</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea, button {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <script>
+        function joinString() {
+            var inputString = document.getElementById("inputField").value;
+            var joinedString = inputString.split(' ').join('-');
+            document.getElementById("outputField").value = joinedString;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>String Joining</h1>
+
+        <form>
+            <label for="inputField">Input String:</label>
+            <textarea id="inputField" name="inputField"></textarea>
+
+            <div class="button-wrapper">
+                <button type="button" onclick="joinString()">Join</button>
+            </div>
+
+            <label for="outputField">Joined String:</label>
+            <textarea id="outputField" name="outputField" readonly></textarea>
+        </form>
+    </div>
+</body>
+</html>

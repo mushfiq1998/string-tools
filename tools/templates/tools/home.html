@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .column {
+            flex: 1;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .button {
+            padding: 12px 24px;
+            background-color: #fff;
+            border: 1px solid #4CAF50; /* Green border */
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #4CAF50; /* Green background on hover */
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to String Tools</h1>
+
+        <div class="row">
+            <div class="column">
+                <a href="{% url 'reverse_string' %}"><button class="button">Reverse String</button></a>
+            </div>
+            <div class="column">
+                <a href="{% url 'split_string' %}"><button class="button">Split String</button></a>
+            </div>
+            <div class="column">
+                <a href="{% url 'join_string' %}"><button class="button">Join String</button></a>
+            </div>
+            <div class="column">
+                <a href="{% url 'sort_string' %}"><button class="button">Sort String</button></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <a href="{% url 'slice_string' %}"><button class="button">Slice String</button></a>
+            </div>
+            <div class="column">
+                <a href="{% url 'lower2upper' %}"><button class="button">Lower to Upper</button></a>
+            </div>
+            <div class="column">
+                <a href="{% url 'upper2lower' %}"><button class="button">Upper to Lower</button></a>
+            </div>
+            <div class="column">
+                <a href="{% url 'remove_duplicate_words' %}"><button class="button">Remove Duplicate Words</button></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <a href="{% url 'numbers2words' %}"><button class="button">Numbers to Words</button></a>
+            </div>
+            <div class="column">
+                <a href="{% url 'sentence_counter' %}"><button class="button">Sentence Counter</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

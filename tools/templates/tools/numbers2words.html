@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number to Text Conversion</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea, input[type="number"], button {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function convertNumberToText() {
+            var inputNumber = parseInt(document.getElementById("inputField").value);
+            var convertedString = numberToText(inputNumber);
+            document.getElementById("outputField").value = convertedString;
+        }
+
+        function numberToText(number) {
+            var units = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+            var teens = ['', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen',
+             'nineteen'];
+            var tens = ['', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+            var scales = ['', 'thousand', 'million', 'billion', 'trillion'];
+
+            if (number === 0) {
+                return 'zero';
+            }
+
+            var sign = number < 0 ? 'negative ' : '';
+            number = Math.abs(number);
+
+            var result = '';
+
+            for (var i = 0; number > 0; i++) {
+                var num = number % 1000;
+                if (num !== 0) {
+                    var str = '';
+
+                    var hundreds = Math.floor(num / 100);
+                    if (hundreds > 0) {
+                        str += units[hundreds] + ' hundred ';
+                    }
+
+                    var tensUnits = num % 100;
+                    if (tensUnits >= 11 && tensUnits <= 19) {
+                        str += teens[tensUnits - 10] + ' ';
+                    } else {
+                        var tensDigit = Math.floor(tensUnits / 10);
+                        var unitsDigit = tensUnits % 10;
+                        if (tensDigit > 0) {
+                            str += tens[tensDigit] + ' ';
+                        }
+                        if (unitsDigit > 0) {
+                            str += units[unitsDigit] + ' ';
+                        }
+                    }
+
+                    str += scales[i] + ' ';
+                    result = str + result;
+                }
+
+                number = Math.floor(number / 1000);
+            }
+
+            return sign + result.trim();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+
+    <h1>Number to word Conversion</h1>
+
+    <form>
+        <label for="inputField">Input Number:</label>
+        <input type="number" id="inputField" name="inputField" />
+        <br>
+        <button type="button" onclick="convertNumberToText()">Convert</button>
+        <br>
+        <label for="outputField">Converted Text:</label>
+        <textarea id="outputField" name="outputField"></textarea>
+    </form>
+
+    </div>
+</body>
+
+</html>

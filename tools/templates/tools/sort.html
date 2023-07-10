@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Sorting</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea, input[type="text"], button {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function sortString() {
+            var inputString = document.getElementById("inputField").value;
+            var sortedString = inputString.split('').sort().join('');
+            document.getElementById("outputField").value = sortedString;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>String Sorting alphabetically</h1>
+
+        <form>
+            <label for="inputField">Input String:</label>
+            <textarea id="inputField" name="inputField"></textarea>
+
+            <br>
+
+            <button type="button" onclick="sortString()">Sort</button>
+
+            <br>
+
+            <label for="outputField">Sorted String:</label>
+            <textarea id="outputField" name="outputField"></textarea>
+        </form>
+    </div>
+</body>
+</html>
